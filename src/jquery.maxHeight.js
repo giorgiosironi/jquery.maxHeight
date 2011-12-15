@@ -1,5 +1,10 @@
 (function ($) {
     $.fn.maxHeight = function() {
-        return this.height();
+        var max = null;
+        this.each(function () {
+            var currentHeight = $(this).height();
+            max = Math.max(currentHeight, max);
+        });
+        return max;
     }
 })(jQuery);
